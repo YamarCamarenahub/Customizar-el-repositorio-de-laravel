@@ -55,3 +55,7 @@ npm run dev        # o: npm run production
 # Servidor de desarrollo
 php artisan serve
 # URL: http://127.0.0.1:8000  (Login: /login, Register: /register)
+
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
