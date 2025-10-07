@@ -1,59 +1,69 @@
-# Laboratorio #2 – Implementación del Login en Laravel
-> Repositorio académico documentado con **toda** la información requerida (requisitos, instalación, autenticación, MVC, migraciones, evidencia, respaldo BD, dificultades/soluciones, referencias, footer y fecha).
+# Laboratorio #2 — Implementación del Login en Laravel
 
-![PHP](https://img.shields.io/badge/PHP-8%2B-777BB4) ![Composer](https://img.shields.io/badge/Composer-latest-orange) ![Laravel](https://img.shields.io/badge/Laravel-10-red) ![MySQL](https://img.shields.io/badge/MySQL-MariaDB-blue) ![Node.js](https://img.shields.io/badge/Node.js-npm-brightgreen) ![Bootstrap](https://img.shields.io/badge/Bootstrap-5-7952B3) ![VSCode](https://img.shields.io/badge/VSCode-Editor-007ACC)
+![PHP](https://img.shields.io/badge/PHP-8%2B-777BB4)
+![Composer](https://img.shields.io/badge/Composer-latest-orange)
+![Laravel](https://img.shields.io/badge/Laravel-10-red)
+![MySQL](https://img.shields.io/badge/MySQL-MariaDB-blue)
+![Node.js](https://img.shields.io/badge/Node.js-npm-brightgreen)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5-7952B3)
+![VSCode](https://img.shields.io/badge/Editor-VSCode-007ACC)
+
+> Repositorio académico con la implementación de **autenticación (login/registro)** en **Laravel**, aplicando el patrón **Modelo–Vista–Controlador (MVC)** y documentando el flujo completo de instalación, configuración, ejecución y respaldo.
 
 ---
 
-## Tabla de Contenidos
-- [Descripción General](#descripción-general)
-- [Demo Local](#demo-local)
-- [Requisitos Previos](#requisitos-previos)
-- [Instalación y Arranque](#instalación-y-arranque)
+## Tabla de contenidos
+- [Descripción general](#descripción-general)
+- [Demo local](#demo-local)
+- [Requisitos previos](#requisitos-previos)
+- [Instalación y arranque](#instalación-y-arranque)
 - [Autenticación (UI / Breeze)](#autenticación-ui--breeze)
-- [Configuración de Entorno (.env)](#configuración-de-entorno-env)
-- [Base de Datos: Migraciones y Respaldo](#base-de-datos-migraciones-y-respaldo)
-- [Arquitectura MVC y Estructura de Carpetas](#arquitectura-mvc-y-estructura-de-carpetas)
-- [Rutas Principales](#rutas-principales)
+- [Configuración de entorno (.env)](#configuración-de-entorno-env)
+- [Base de datos: migraciones y respaldo](#base-de-datos-migraciones-y-respaldo)
+- [Arquitectura MVC y estructura del proyecto](#arquitectura-mvc-y-estructura-del-proyecto)
+- [Rutas principales](#rutas-principales)
 - [Evidencia (capturas)](#evidencia-capturas)
-- [Dificultades y Soluciones](#dificultades-y-soluciones)
+- [Dificultades y soluciones](#dificultades-y-soluciones)
 - [Referencias](#referencias)
-- [Footer (Créditos)](#footer-créditos)
-- [Fecha de Ejecución](#fecha-de-ejecución)
-- [Checklist de Entrega](#checklist-de-entrega)
-- [Comandos Útiles](#comandos-útiles)
-- [Notas y Licencia](#notas-y-licencia)
+- [Créditos (footer)](#créditos-footer)
+- [Fecha de ejecución](#fecha-de-ejecución)
+- [Checklist de entrega](#checklist-de-entrega)
+- [Comandos útiles](#comandos-útiles)
+- [Notas](#notas)
 
 ---
 
-## Descripción General
-Este repositorio contiene la implementación de un **módulo de autenticación (login/registro)** en **Laravel**, aplicando el patrón **Modelo–Vista–Controlador (MVC)**. La documentación explica **todo el flujo**: requisitos, comandos, configuración de entorno, migraciones, resultado visual, dificultades/soluciones y **respaldo de la base de datos**, tal como se solicita en la asignación académica.
-
-## Demo Local
-- URL local por defecto (Artisan): **http://127.0.0.1:8000/**
-- Comando de ejecución: `php artisan serve`
+## Descripción general
+Este proyecto implementa un módulo de **login y registro de usuarios** con Laravel. El objetivo es:
+1) Consolidar el uso de **MVC** en un entorno real.
+2) Documentar **requisitos, comandos y configuración** del entorno.
+3) Mostrar **evidencias visuales** del resultado.
+4) Incluir **respaldo de la base de datos** dentro del repositorio.
 
 ---
 
-## Requisitos Previos
-**Prerrequisitos del entorno**
-- PHP **8.0+**
-- **Composer** (última versión estable)
+## Demo local
+- URL por defecto (Artisan): **http://127.0.0.1:8000/**
+- Arranque del servidor: `php artisan serve`
+
+---
+
+## Requisitos previos
+- **PHP 8.0+**
+- **Composer** (última versión)
 - **Laravel Installer** o `composer create-project`
-- **XAMPP / WampServer / Laragon** (Apache o Nginx) con **MySQL/MariaDB**
-- Editor: **Visual Studio Code**
+- **XAMPP / WampServer / Laragon** con **Apache** y **MySQL/MariaDB**
 - **Node.js + npm**
-- Sistema Operativo: **Windows 10/11** (equivalente en Linux/Mac)
+- **Visual Studio Code**
+- **Windows 10/11** (o equivalente en Linux/Mac)
 
-**Iconos/Tecnologías**: ver badges al inicio.
+> Si clonas un repo existente, normalmente necesitas: `composer install`, `npm install`, crear `.env`, `php artisan key:generate`, configurar BD y `php artisan migrate`.
 
 ---
 
-## Instalación y Arranque
-> Si ya tienes el proyecto clonado, ejecuta solo `composer install`, `npm install` y configura el `.env`.
-
+## Instalación y arranque
 ```bash
-# 1) Crear proyecto (si comienzas desde cero)
+# 1) Crear proyecto (si inicias desde cero)
 composer create-project laravel/laravel login-lab
 cd login-lab
 
@@ -64,3 +74,10 @@ npm install
 # 3) Archivo de entorno y clave de app
 cp .env.example .env
 php artisan key:generate
+
+# 4) Compilar assets (Mix o Vite)
+npm run dev
+
+# 5) Servidor local
+php artisan serve
+# abre http://127.0.0.1:8000/
